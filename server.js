@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 const modelUri = 'gpt://b1gveqeqi3omdtmhaqe8/yandexgpt/rc'; 
-const iamToken = 't1.9euelZqaz5XNmMeUyI6PkZuNzMzNy-3rnpWaks7OzZeak5eWypfOz57NjM7l8_cNekZD-e8AWiYm_t3z900oREP57wBaJib-zef1656Vmp7IkZmSiZfPmpuQzJeYz5iO7_zF656Vmp7IkZmSiZfPmpuQzJeYz5iO.PaB0Vd3_1O-ck83JbgBN16CLUvh8gQ8JtzYoPlqVM2AplxpdYIn9yxFBXlShTEJ6iAx1lB-_UT-9zne3fWivAQ';  // Замените на свой IAM-токен
+const iamToken = 't1.9euelZqZl8iZm5mczM6Ojo-PlprJju3rnpWakJjNipnMl8vMxo_IkpPIy8rl8_dJICZD-e8jWDEz_t3z9wlPI0P57yNYMTP-zef1656VmpWai4nKyouezpuRypPPyJqJ7_zF656VmpWai4nKyouezpuRypPPyJqJ.tLXPyu7SmCGtVvbM0pkbZoH8PtAbeucHw9Y9FdXeQM5_ELRtTecLOBQk45ul0djeDV7caWUzPg1GMroCVw7XAw';  // Замените на свой IAM-токен
 
 // app.post('/yandexgpt', async (req, res) => {
 //     try {
