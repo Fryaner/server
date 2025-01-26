@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 const modelUri = 'gpt://b1gveqeqi3omdtmhaqe8/yandexgpt/rc'; 
-const iamToken = 't1.9euelZqZl8iZm5mczM6Ojo-PlprJju3rnpWakJjNipnMl8vMxo_IkpPIy8rl8_dJICZD-e8jWDEz_t3z9wlPI0P57yNYMTP-zef1656VmpWai4nKyouezpuRypPPyJqJ7_zF656VmpWai4nKyouezpuRypPPyJqJ.tLXPyu7SmCGtVvbM0pkbZoH8PtAbeucHw9Y9FdXeQM5_ELRtTecLOBQk45ul0djeDV7caWUzPg1GMroCVw7XAw';  // Замените на свой IAM-токен
+const iamToken = 't1.9euelZqbnozOy5KQkIvNyc_KnsjLle3rnpWaks7OzZeak5eWypfOz57NjM7l8_cHAiZD-e9IKSAr_d3z90cwI0P570gpICv9zef1656Vms6UzcqclcedzZvNx4uXnY7M7_zF656Vms6UzcqclcedzZvNx4uXnY7M.sJVVx7jkgt4QkqU9GP1DHobJwW3NfoQzIi_-M1JGsLoU674HmzGblbJqzQ-_nNX-ebcWe0r_FoKy1U_H46AXAA';  // Замените на свой IAM-токен
 
 // app.post('/yandexgpt', async (req, res) => {
 //     try {
@@ -48,6 +48,7 @@ const iamToken = 't1.9euelZqZl8iZm5mczM6Ojo-PlprJju3rnpWakJjNipnMl8vMxo_IkpPIy8r
 app.post('/recommendation', async (req, res) => {
   try {
     const { answers } = req.body;
+    console.log('Начало')
     console.log(answers)
     if (!answers) {
       return res.status(400).json({ error: 'answers not provided' });
@@ -65,9 +66,8 @@ app.post('/recommendation', async (req, res) => {
       }
 
     const yandexGPTRecommendation = await getYandexGPTRecommendation(answers);
-    const yandexGPTDiary = await getYandexGPTDiary(answers);
 
-    res.json({serverRecommendation, yandexGPTRecommendation, yandexGPTDiary });
+    res.json({serverRecommendation, yandexGPTRecommendation });
   } catch (error) {
     console.error('Ошибка:', error);
     res.status(500).json({ error: 'Failed to process recommendation' });
@@ -79,7 +79,7 @@ app.post('/diary', async (req, res) => {
     const { text } = req.body;
     console.log(text)
     if (!text) {
-      return res.status(400).json({ error: 'answers not provided' });
+      return res.status(400).json({ error: `Ошибка в дневнике ${text}` });
     }
     const yandexGPTDiary = await getYandexGPTDiary(text);
 
